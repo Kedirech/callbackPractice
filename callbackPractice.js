@@ -25,6 +25,10 @@ and what you should write is the favNum function that makes the code above work,
 
 
   //Code Here for first
+
+  function first(arry, funct){
+    funct(arry[0]);
+  }
   
 var names = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan'];
 first(names, function(firstName){
@@ -35,7 +39,9 @@ first(names, function(firstName){
 
 /* NEXT PROBLEM ---- NEXT PROBLEM ---- NEXT PROBLEM ---- NEXT PROBLEM */
 
-
+function last(arry, funct){
+    funct(arry[arry.length -1]);
+  }
 
 
   //Code Here for last
@@ -57,6 +63,9 @@ last(names, function(lastName){
 
 
   //Code Here for multiply
+  function multiply(num1, num2, funct){
+    return funct(num1*num2);
+  }
 
 multiply(4, 3, function(answer){
   console.log('The answer is ', answer); //should console.log 12
@@ -70,7 +79,14 @@ multiply(4, 3, function(answer){
 
 
 
-
+function contains(arry, srch, functToRun){
+  for (var i=0;i<arry.length;i++){
+    if (arry[i] === srch){
+      return functToRun(true);
+    }
+  }
+  return functToRun(false);
+}
 
   //Code Here for contains
 
@@ -91,7 +107,10 @@ contains(names, 'Colt', function(result){
 
 
 
-
+function uniq(array, functionToRunOnUniqueArray){
+  var uniqArray = array.filter(onlyUnique);
+  functionToRunOnUniqueArray(uniqArray);
+}
     //Code Here for uniq
 
 var names = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan'];
@@ -109,6 +128,11 @@ uniq(names, function(uniqArr){
 
 
     //Code Here for each
+function each(arry, func){
+    for (var i=0;i<arry.length;i++){
+      func(arr[i],i);
+    }
+}
 
 var names = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan'];
 each(names, function(item, indice){
@@ -126,6 +150,14 @@ each(names, function(item, indice){
 
 
  //code here for getUserById
+ function getObjByProp(arrayOfObjects, propetyName, searchValue){
+  for (var i=0;i<arrayOfObjects.length;i++){
+    if (arrayOfObjects[i] === searchValue){
+      return arrayOfObjects[i];
+    }
+  }
+  return null;
+ }
 
 var users = [
   {
